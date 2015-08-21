@@ -1,0 +1,196 @@
+@()
+
+@main("PayU - JSAE") {
+	
+    <header class="header clearfix">
+		<div class="logInMenu">
+			<div class="container">
+				<ul class="nav navbar-nav nav-Lang">
+					<li><a href="/" class="borderRight">ES</a></li>
+					<li class="active"><a href="/" class="borderLeft">EN</a></li>
+				</ul>
+				<ul class="nav navbar-nav nav-logIn">
+					<li><a href="/" class="borderRight"><span class="fa fa-user"></span> Log In</a></li>
+					<li><a href="/" class="borderLeft"><span class="fa fa-envelope"></span>Contact Us</a></li>								
+					<li class="dropdown international hidden-xs">
+						<a aria-expanded="true" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#">International <span class="fa fa-caret-down"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Action</a></li>
+							<li role="separator" class="divider"></li>
+							<li><a href="#">Another action</a></li>							
+						</ul>
+					</li>
+				</ul>				
+			</div>
+		</div>
+	</header>
+	<nav>
+		<div class="navigation">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-2 col-sm-12 col-xs-12 hidden-md hidden-lg">						
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							</button>					
+							<a class="navbar-brand" href="#">
+								<figure>
+									<img src='@routes.Assets.at("img/payu-logo.png")' alt="PAYU Latam" class="img-responsive">
+								</figure>
+							</a>
+						</div>
+					</div>
+					<div class="col-md-2 hidden-xs hidden-sm">
+						<a class="logo" href="#">
+							<figure>
+								<img src='@routes.Assets.at("img/payu-logo.png")' alt="PAYU Latam" class="img-responsive">
+							</figure>
+						</a>
+					</div>
+					<div>						
+						<div id="navbar" class="collapse navbar-collapse">
+							<ul class="nav navbar-nav">
+								<li class="active"><a href="#"><span class="fa fa-home"></span></a></li>
+								<li><a href="#">Benefits</a></li>
+								<li><a href="#">How it Works</a></li>
+								<li><a href="#">Fee</a></li>
+								<li><a href="#">Solutions</a></li>
+								<li><a href="#">About PayU Latam</a></li>
+							</ul>
+							<div class="text-right hidden-xs">
+								<button type="submit" class="btn btn-primary">Sign up HERE <span class="fa fa-caret-right"></span></button>
+							</div>
+						</div><!--/.nav-collapse -->						
+					</div>
+				</div>
+			</div>
+		</div>
+	</nav>
+    <main role="main">
+		<div class="myTitle">
+			<div class="containerTitle">
+				<h1>Contact Us</h1>
+			</div>
+		</div>
+		<div class="jumbotron">					
+			<div class="container">	
+				<figure>
+					<figcaption>
+						<div class="col-md-6 col-xs-12 col-sm-6">
+							<h3><strong>Send us your questions or requests</strong> and we will contact you soon</h3>
+						</div>
+					</figcaption>
+					<img src='@routes.Assets.at("img/img-page.png")' alt="Send us your questions or requests and we will contact you soon" class="img-responsive hidden-xs">
+				</figure>
+			</div>					
+		</div>
+		<div class="content">
+			<div class="container">
+			<form id="contactForm" method="POST" action="@routes.Application.registrarContacto()" novalidate="novalidate">
+				<div class="col-md-6 col-sm-6">
+					<div class="form-group"> 
+						<div class="input-group">
+							<span class="input-group-addon"><span class="fa fa-user"></span></span>
+							<input type="text" class="form-control" id="name" name="name" placeholder="Name*">
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 col-sm-6">
+					<div class="form-group">
+						<div class="input-group">
+							<span class="input-group-addon"><span class="fa fa-user"></span></span>
+							<input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name*">
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 col-sm-6">
+					<div class="form-group">
+						<div class="input-group">
+							<span class="input-group-addon"><span class="fa fa-envelope"></span></span>
+							<input type="email" class="form-control" id="email" name="email" placeholder="Email*">
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 col-sm-6">
+					<div class="form-group">
+						<div class="input-group">
+							<span class="input-group-addon"><span class="fa fa-phone"></span></span>
+							<input type="tel" class="form-control" id="telephone" name="telephone" placeholder="Telephone">
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 col-sm-6">
+					<div class="form-group">
+						<div class="input-group">
+							<span class="input-group-addon"><span class="icon world"></span></span>
+							<input type="text" class="form-control" id="country" name="country" placeholder="Country*" >
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 col-sm-6">
+					<div class="form-group">
+						<div class="input-group">
+							<span class="input-group-addon"><span class="icon internet"></span></span>
+							<input type="url" class="form-control" id="webSite" name="webSite" placeholder="Website">
+						</div>
+					</div>
+				</div>
+				<div class="col-md-12 fixForm">
+					<div class="form-group mySelect">						
+						<select class="form-control" id="selectMedio" name="selectMedio">
+						  <option>- Where did you hear about us? -</option>
+						</select>
+					</div>
+				</div>
+				<div class="col-md-12 fixForm">
+					<div class="form-group">
+						<textarea class="form-control" id="comments" name="comments" placeholder="Your comments*" rows="3"></textarea>
+					</div>
+				</div>
+				<div class="col-md-12">
+					<div class="text-right">
+						<button type="submit" class="btn btn-default">Send <span class="fa fa-caret-right"></span></button>
+						<!--<button type="button" class="btn btn-default" onclick="llamarAlerta()">Prueba</button>-->
+					</div>
+				</div>
+			</form>
+			</div>
+		</div><!-- /.container -->
+	</main>
+	<footer>
+		<div class="menuFooter">
+			<div class="container">
+				<ul class="nav navbar-nav">
+					<li><a href="/" class="borderRight">Developers</a></li>
+					<li><a href="/" class="borderLeft borderRight">Legal</a></li>
+					<li><a href="/" class="borderLeft">Contact Us</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="container">
+			<div class="col-md-6 col-sm-6 logoFooter">
+				About:
+				<figure>
+					<img src='@routes.Assets.at("img/img-logo-payugroup.png")' alt="PAYUGROUP">
+				</figure>
+				<a href="#">Copyright ©</a> PAYU Latam
+			</div>
+			<div class="col-md-6 col-sm-6 text-right logoFooter pci">				
+				<figure>
+					<img src='@routes.Assets.at("img/img-logo-pci-dss.png")' alt="PCI DSS COMPLIANT" >
+				</figure>				
+			</div>
+		</div>
+	</footer>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script language="javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script language="javascript" src='@routes.Assets.at("js/bootstrap.min.js")'></script> 
+	<script language="javascript" src='@routes.Assets.at("js/jquery.validate.min.js")'></script> 
+	<script language="javascript" src='@routes.Assets.at("js/main.js")'></script>
+	<script type="text/javascript" src='@routes.Assets.at("js/index.js")'></script>
+}
