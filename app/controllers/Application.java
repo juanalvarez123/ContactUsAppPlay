@@ -18,9 +18,9 @@ import play.data.DynamicForm;
 import play.data.Form;
 
 public class Application extends Controller {
-	
+
     public class Contacto { }
-    public class Medio { 
+    public class Medio {
         public Integer idMedio;
         public Medio(Integer idMedio) {
             this.idMedio = idMedio;
@@ -32,7 +32,7 @@ public class Application extends Controller {
     public Result index() {
         return ok(index.render());
     }
-    
+
 	public Promise<Result> registrarContacto() {
         DynamicForm form = Form.form().bindFromRequest();
         Contacto contacto = new Contacto() {
@@ -48,31 +48,23 @@ public class Application extends Controller {
         JsonNode contactoJson = Json.toJson(contacto);
         WSRequest request = ws.url("http://localhost:8081/WS/rest/wsContactUs/registrarContacto");
         Promise<Result> promiseResultado = request.post(contactoJson).map(response -> {
-            if(String.valueOf(response.asJson()) == "false") {
-                return ok(index.render());
+            if(String.valueOf(response.asJson()) == "true") {
+            	return ok("<h1>Solicitud registrada correctamente</h1>").as("text/html");
             } else {
                 return ok("<h1>Error el registrar la solicitud</h1>").as("text/html");
             }
-//            return ok(response.asJson());
         });
-        /*System.out.println(String.valueOf(promiseResultado));
-        //System.out.println("Hello World");
-        if (String.valueOf(promiseResultado) == "true") {
-            return ok(index.render());
-        } else {
-            return notFound();
-        }*/
         return promiseResultado;
     }
-    
+
     @SuppressWarnings({ "unchecked", "rawtypes" })
     public Promise<Result> consultarMedios(String estado) {
-    	WSRequest request = ws.url("http://localhost:8081/WS/rest/wsContactUs/consultarMedios/" + estado);    	
+    	WSRequest request = ws.url("http://localhost:8081/WS/rest/wsContactUs/consultarMedios/" + estado);
     	Promise<Result> promiseResultado = request.get().map(response -> {
     		return ok(response.asJson());
     	});
-    	
+
     	return promiseResultado;
     }
-    
+
 }
